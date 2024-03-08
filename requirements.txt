@@ -1,0 +1,4 @@
+requests
+findspark~=2.0.1
+confluent-kafka~=2.1.1
+pyspark~=3.5.1
