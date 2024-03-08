@@ -1,7 +1,6 @@
 #  Option1 - Air Quality Streaming Pipeline
 
  
-
 ## Description
 
 This repository contains the source code for the Air Quality Streaming Pipeline. The pipeline retrieves real-time data from the OpenWeatherMap API, ingests it into a Kafka topic,
@@ -43,8 +42,39 @@ To deploy the solution in the AWS cloud environment using Terraform, you will ne
 - AWS Command Line Interface (CLI) for interacting with AWS services from the command line.
 
  
+## Repository structure
+```markdown
 
- 
+AirQualityPipeline/
+│
+├── .venv/
+│
+├── dependencies/
+│   ├── Dockerfile
+│   └── pyspark_airquality.tar.gz
+│
+├── results/
+│
+├── terraform/
+│   ├── .terraform/
+│   ├── .terraform.lock.hcl
+│   ├── bastion.tftpl
+│   ├── config.tf
+│   ├── data.tf
+│   ├── main.tf
+│   ├── outputs.tf
+│   ├── terraform.tfstate
+│   ├── terraform.tfstate.backup
+│   └── variables.tf
+│
+├── AirQualityStream.py
+├── AirQualityStream_Local.py
+├── requirements.txt
+├── README.md
+├── Context.md
+├── Local.md
+└── Cloud.md
+```
 
 ## Local Deployment
 
@@ -107,7 +137,7 @@ To deploy the solution locally, follow these steps:
    ```bash
 
    python AirQualityStream_Local.py "C:\Users\Vador\Desktop\DSTI\Data pipe2\Weather_project\pythonProject1\results" "localhost:9092" "weather_data_topic"
-
+   
    ```
 
  
