@@ -4,46 +4,35 @@ Use the "AirQualityStream_Local.py" Python Script.
 
 ## 1) Install Dependencies
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/c55acc4a-fffd-4a7a-a7fe-11c17cc02dbc)
-
-
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/c4c15196-c00b-4ba3-bdf6-d1491acfa242)
 
 ## 2) Start Zookeeper
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/7c9f9c42-b101-4697-a808-877afa97a6a9)
-
-
-
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/1515034c-2bba-4179-ab14-0e8641694dec)
 
 ## 3) Start Kafka Broker
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/08556ccc-93c6-434f-88a5-4c6bb17bc97b)
-
-
-
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/077877d8-5981-4daf-b611-5005c8384274)
 
 ## 4) Create a Kafka Topic
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/01b801af-be63-4dcb-9e60-2dbe50a99680)
-
-
-
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/edbf0fff-f33e-447b-b096-3e05b120c1ff)
 
 ## 5) Run the Pipeline
 - Add arguments to the Python script :
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/28fc43cc-8058-4e42-ab38-b3498b8b6798)
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/a7e805ec-c5c7-4aa2-9317-5fbf6975ac20)
 
 - Output AirQuality informations to the console :
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/a27cc1ce-825c-4e53-a656-cda9f84e5019)
-
-
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/cdc385f6-8044-4fdc-be4b-d6c87f8d7bfb)
 
 - Store AirQuality informations into a .csv file for each time epoch (2 time steps configuration here) :
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/9d3ba523-853a-406c-8a69-65945453b932)
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/45db89a0-955b-40bd-aa00-b3785aebc9c0)
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/ad61a2b1-47be-4ace-993c-6e5580932838)
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/8a8e82d4-48c3-412e-93c9-465da2dd0d1b)
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/4e647567-c46d-41db-aaef-d471a783bce3)
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/fdf985fa-2a23-4e10-998a-2c8d48a7b999)
+
+
