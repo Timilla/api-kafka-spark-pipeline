@@ -196,7 +196,6 @@ The AWS cloud Application job run details are available for consultation in [Clo
 For upcoming work :
 - Enhance the pipeline by addressing any limitations and integrating additional parameters.
 - Implement CI/CD using GitHub Actions.
-- Investigate and resolve the AWS failure Spark job.
 
 
 
