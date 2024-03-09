@@ -100,3 +100,107 @@ To deploy the solution locally, follow these steps:
 
 The local run details are available for consultation in [Local.md](Local.md).
 
+
+
+## Cloud Deployment
+follow this step-by-step guide for deploying the solution on Amazon Web Services using Terraform :
+
+1. **Configure AWS Profile** :
+   - Sign in to your AWS account and create an IAM user with administrative permissions.
+   - Generate the access key and secret key for the IAM user.
+   - Configure AWS profile on your local machine by running the following command in the terminal:
+   ```bash
+   aws configure --profile stream_dsti
+   ```
+
+
+2. **Create Terraform Infrastructure** :
+   - Create a new Terraform repository with the necessary files (config.tf, variables.tf, main.tf, data.tf, outputs.tf, bastion.tftpl).
+   - Specify the necessary configurations, including AWS resources (MSK, EMR, S3 bucket), networking settings, IAM roles, etc.
+
+
+3. **Dockerize the Environment** :
+   - Create a new repository named "dependencies" and add a Dockerfile inside it to configure the environment encapsulation.
+   - Specify the necessary dependencies and installation steps in the Dockerfile.
+   - Build the Docker image using the following commands:
+   ```bash
+   docker build -t pyspark_airquality .
+   docker buildx build --output type=local,dest=. .
+   ```
+
+
+4. **Terraform Deployment** :
+   - Navigate to your Terraform repository and initialize Terraform :
+   ```bash
+   terraform init
+   ```
+   - Validate the Terraform configuration :
+   ```bash
+   terraform validate
+   ```
+   - Plan the deployment to review the changes that will be applied :
+   ```bash
+   terraform plan -var="profile=stream_dsti"
+   ```
+   - Apply the Terraform changes to deploy the infrastructure :
+   ```bash
+   terraform apply -var="profile=stream_dsti"
+   ```
+     When the deployment is finished, information about the remote MSK hostname is printed to the terminal.
+
+
+4. **Create a kafka topic** :
+   - Access the AWS Management Console and navigate to the deployed MSK cluster, manually create the Kafka topic under the desired broker.
+   - Alternatively, connect to the Amazon MSK cluster locally using the previously obtained MSK hostname :
+   ```bash
+   ssh ec2-user@54.73.144.82 -i cert.pem
+   ```
+   -  Check for running brokers :
+   ```bash
+   more bootstrap-servers
+   ```
+   -  Choose the broker where to create the topic and proceed with topic creation :
+   ```bash
+   kafka-topics.sh --bootstrap-server b-1.groupmsk.3ecnii.c3.kafka.eu-west-1.amazonaws.com:9092 --create --topic weather_data_topic --partitions 1 --replication-factor 1
+   ```
+
+5. **Export Files to the Amazon S3 Bucket** :
+   - Upload the local environment dockerized file to the artifacts folder and the the Python script to code folder, both isnide the created S3 bucket instance. You can perform this task manually or by running :
+   ```bash
+   aws s3 cp pyspark_airquality.tar.gz s3://airquality-dsti-bucket/artifacts/pyspark_airquality.tar.gz
+   aws s3 cp AirQualityStream.py s3://airquality-dsti-bucket/code/AirQualityStream.py
+   ```
+
+
+6. **Initiate a Spark Job on Amazon EMR** :
+   - Navigate to the AWS Management Console and access the EMR studio.
+   - Within the EMR Studio, create a new EMR serverless application.
+   - Submit a Spark job using the spark-submit command. Ensure to specify the necessary parameters such as the path to dependencies, the path to the PySpark code, and its arguments (S3 bucket location, broker name, topic name) etc.
+   - Update the EMR default role policy allowing access to the MSK cluster.
+
+
+
+7. **Monitor and Verify Deployment** :
+   - Monitor the resources in the AWS Management Console to ensure everything is functioning as expected.
+   - Test the deployed solution to verify that data is being processed correctly and that the desired outcomes are achieved.
+  
+
+  
+The AWS cloud Application job run details are available for consultation in [Cloud.md](Cloud.md).
+
+
+
+
+
+## Developer Guide
+For upcoming work :
+- Enhance the pipeline by addressing any limitations and integrating additional parameters.
+- Implement CI/CD using GitHub Actions.
+- Investigate and resolve the AWS failure Spark job.
+
+
+
+## Authors
+- Othmane Tantaoui (othmane.tantaoui@edu.dsti.institute)
+- Omar Ait Ali (omar.aitali@edu.dsti.institute)
+- Anwar Timilla (anwar.timilla@edu.dsti.institute)
