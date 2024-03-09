@@ -7,7 +7,8 @@ processes it using Apache Spark Structured Streaming and stores the results for 
 This project is a proof-of-concept founded upon an imagined real-world application of the pipeline [Context.md](Context.md)..
 
 
-![image](https://github.com/Timilla/api-kafka-spark/assets/95149290/2476cc03-d04a-48e6-b30d-e29be2aae3fe)
+![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/48120404/c35b5929-edcb-416a-a042-959d48309f42)
+
 
 
 
