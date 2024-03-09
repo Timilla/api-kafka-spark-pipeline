@@ -3,12 +3,12 @@ Use the "AirQualityStream.py" Python Script.
 
 # 1. Terraform Deployment
 
-- terraform init & terraform validate
+### - terraform init & terraform validate
 
 ![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/104758161/7c10f3d2-6306-4d52-96eb-2c8cc7b5ff4e)
 
 
-- terraform plan
+### - terraform plan
 
 ![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/104758161/d67205fe-7949-493e-8868-bd41026be6e7)
 
@@ -16,7 +16,7 @@ Use the "AirQualityStream.py" Python Script.
 
 
 
-- terraform apply
+### - terraform apply
 
 ![image](https://github.com/Timilla/api-kafka-spark-pipeline/assets/104758161/8f9f3b98-eb55-4cd7-b543-ac0b40efc98a)
 
@@ -48,6 +48,6 @@ Use the "AirQualityStream.py" Python Script.
 
 
 # 5. Monitor and Verify Deployment :
-All instances are functioning properly.
-The job has been initiated successfully.
-However, the Spark job failed after running successfully. Further investigation and resolution are required.
+### - All instances are functioning properly.
+### - The job has been initiated successfully.
+### - However, the Spark job failed after running successfully. Further investigation and resolution are required.
